@@ -28,7 +28,7 @@ exports.createPdf = async (req, res, next) => {
         .fontSize(25)
         .text(user.lastName, 200, 100);
         doc.end()
-        const content = fs.readFileSync('Gorin.pdf', 'binary')
+        const content = fs.readFileSync(`${user.lastName}.pdf`, 'binary')
         const update = await User.update({pdf: content}, {
             where: {
                 firstName: user.firstName
